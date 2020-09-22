@@ -28,7 +28,7 @@ namespace APItoUploadDocuments
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IAmazonS3, AmazonS3EncryptionClient>(cp => AWSS3ClientFactory.Create(Configuration));
+            services.AddScoped<IAmazonS3, AmazonS3EncryptionClient>(cp => AWSS3ClientFactory.CreateKMSKey(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
